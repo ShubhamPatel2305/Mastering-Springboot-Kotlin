@@ -1,5 +1,7 @@
 package Day_1_exercises
 
+import kotlin.math.max
+
 fun main() {
     println(filterAndSquareNumbers(listOf(1, 2, 3, 6, 7)))
     println(findMaxAndMin(listOf(5, 3, 8, 2, 9)))
@@ -37,7 +39,7 @@ fun main() {
 data class Student(val name: String, val scores: List<Int>)
 data class Product(val name: String, val price: Int)
 
-fun filterAndSquareNumbers(numbers: List<Int>): List<Int> = numbers.filter { it > 5 }.map { it * it }
+fun     filterAndSquareNumbers(numbers: List<Int>): List<Int> = numbers.filter { it > 5 }.map { it * it }
 
 fun findMaxAndMin(numbers: List<Int>): Pair<Int, Int> = Pair(numbers.maxOrNull() ?: 0, numbers.minOrNull() ?: 0)
 
@@ -63,7 +65,7 @@ fun filterStringsByLength(strings: List<String>): List<String> = strings.filter 
 
 fun sumUsingReduce(numbers: List<Int>): Int = numbers.reduce { acc, num -> acc + num }
 
-fun findMaxUsingReduce(numbers: List<Int>): Int = numbers.reduce { acc, num -> maxOf(acc, num) }
+fun findMaxUsingReduce(numbers: List<Int>): Int = numbers.reduce { acc, num -> max(acc,num) }
 
 fun flattenListOfIntegers(listOfLists: List<List<Int>>): List<Int> = listOfLists.flatten()
 
@@ -89,7 +91,7 @@ fun processCountryMap(countries: Map<String, String>): Pair<List<String>, List<S
     return Pair(sortedCountries, capitalsStartingWithA)
 }
 
-fun totalPriceAbove500(books: Map<String, Int>): Int = books.filter { it.value > 500 }.values.sum()
+fun totalPriceAbove500(books: Map<String, Int>): Int = books.values.filter { it > 500 }.sum()
 
 fun filterNamesByLength(names: List<String>): List<String> = names.filter { it.length > 5 }
 

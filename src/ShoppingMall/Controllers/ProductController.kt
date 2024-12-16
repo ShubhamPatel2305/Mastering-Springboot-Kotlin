@@ -19,7 +19,7 @@ class ProductController(private val productService: ProductService) {
 
     fun updateProduct(uuid: UUID, name: String? = null, price: Double? = null, quantity: Int? = null) {
         val updatedProduct = productService.updateProduct(uuid, name, price, quantity)
-        updatedProduct?.let { println("Updated Product: $it") }
+        println("Updated Product: $updatedProduct")
     }
 
     fun deleteProduct(uuid: UUID) {

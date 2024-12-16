@@ -19,7 +19,7 @@ class CustomerController(private val customerService: CustomerService) {
 
     fun updateCustomer(uuid: UUID, name: String) {
         val updatedCustomer = customerService.updateCustomer(uuid, name)
-        updatedCustomer?.let { println("Updated Customer: $it") }
+        println("Updated Customer: $updatedCustomer")
     }
 
     fun deleteCustomer(uuid: UUID) {

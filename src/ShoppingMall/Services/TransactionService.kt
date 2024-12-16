@@ -20,7 +20,6 @@ class TransactionService(
             val product = productRepository.getProductById(productId)
                 ?: throw IllegalArgumentException("Product not found")
 
-            // Validate quantity
             if (product.quantityAvailable < quantity) {
                 throw IllegalArgumentException("Insufficient stock for product ${product.name}")
             }
